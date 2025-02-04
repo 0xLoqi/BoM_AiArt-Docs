@@ -1,73 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Best of MidJourney - Privacy Policy</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #121212;
-            color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-            text-align: center;
-        }
-        .container {
-            max-width: 600px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease-in-out;
-        }
-        .container:hover {
-            transform: scale(1.02);
-        }
-        h1 {
-            font-size: 2em;
-        }
-        p {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-        }
-        .links a {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 10px;
-            text-decoration: none;
-            font-size: 1.1em;
-            color: #ffffff;
-            border: 2px solid #ffffff;
-            border-radius: 5px;
-            transition: background 0.3s ease-in-out, transform 0.2s;
-        }
-        .links a:hover {
-            background: #ffffff;
-            color: #121212;
-            transform: scale(1.05);
-        }
-        footer {
-            margin-top: 20px;
-            font-size: 0.9em;
-            opacity: 0.7;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Best of MidJourney - Legal & Media</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+    h1, h2 {
+      margin-bottom: 0.5em;
+    }
+    main {
+      flex: 1;
+      width: 90%;
+      max-width: 1000px;
+      margin: 20px auto;
+    }
+    section {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    /* Legal Container */
+    .legal-container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease-in-out;
+    }
+    .legal-container:hover {
+      transform: scale(1.02);
+    }
+    .links a {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px;
+      border: 2px solid #ffffff;
+      border-radius: 5px;
+      transition: background 0.3s ease-in-out, transform 0.2s;
+    }
+    .links a:hover {
+      background: #ffffff;
+      color: #121212;
+      transform: scale(1.05);
+    }
+    /* Twitter Feed */
+    .twitter-feed {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    /* Video Carousel */
+    .video-carousel {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 10px;
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      height: 450px; /* Adjust as needed for your video aspect ratio */
+    }
+    .carousel .slide {
+      position: absolute;
+      top: 0;
+      left: 100%;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
+    .carousel .slide.active {
+      left: 0;
+      opacity: 1;
+    }
+    .carousel video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      opacity: 0.7;
+      padding: 10px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
+  <main>
+    <!-- Legal Section -->
+    <section class="legal">
+      <div class="legal-container">
         <h1>Best of MidJourney</h1>
         <p>Welcome to our legal page. Here you can find our Privacy Policy and Terms of Service.</p>
         <div class="links">
-            <a href="privacy-policy.md">Privacy Policy</a>
-            <a href="terms-of-service.md">Terms of Service</a>
+          <a href="privacy-policy.md">Privacy Policy</a>
+          <a href="terms-of-service.md">Terms of Service</a>
         </div>
-    </div>
-    <footer>© 2024 Best of MidJourney | All Rights Reserved</footer>
+      </div>
+    </section>
+
+    <!-- Twitter Timeline Section -->
+    <section class="twitter-feed">
+      <h2>Latest Tweets</h2>
+      <!-- Twitter timeline embed -->
+      <a class="twitter-timeline" data-height="400" href="https://x.com/BoM_AiArt?ref_src=twsrc%5Etfw">
+        Tweets by BoM_AiArt
+      </a>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </section>
+
+    <!-- Video Carousel Section -->
+    <section class="video-carousel">
+      <h2>Our Videos</h2>
+      <div class="carousel" id="videoCarousel">
+        <!-- Replace the src attributes with your actual video URLs -->
+        <div class="slide active">
+          <video src="video1.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <div class="slide">
+          <video src="video2.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <div class="slide">
+          <video src="video3.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <!-- Add more slides as desired -->
+      </div>
+      <p style="font-size: 0.9em; opacity: 0.8;">Hover over or click the video area to pause/resume the carousel rotation.</p>
+    </section>
+  </main>
+
+  <footer>
+    © 2024 Best of MidJourney | All Rights Reserved
+  </footer>
+
+  <script>
+    // Carousel functionality
+    (function() {
+      const carousel = document.getElementById('videoCarousel');
+      const slides = carousel.querySelectorAll('.slide');
+      let currentSlide = 0;
+      let intervalTime = 5000; // milliseconds between slides
+      let carouselInterval;
+      let manualPause = false;
+      let hoverPause = false;
+      
+      function showSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === index);
+        });
+      }
+
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+      }
+
+      function startCarousel() {
+        // Ensure no duplicate intervals are running
+        stopCarousel();
+        carouselInterval = setInterval(nextSlide, intervalTime);
+      }
+
+      function stopCarousel() {
+        clearInterval(carouselInterval);
+      }
+
+      // Start the carousel initially
+      startCarousel();
+
+      // Pause on hover
+      carousel.addEventListener('mouseenter', () => {
+        hoverPause = true;
+        stopCarousel();
+      });
+      carousel.addEventListener('mouseleave', () => {
+        hoverPause = false;
+        // Only restart if the carousel is not manually paused
+        if (!manualPause) {
+          startCarousel();
+        }
+      });
+
+      // Toggle manual pause on click
+      carousel.addEventListener('click', () => {
+        manualPause = !manualPause;
+        if (manualPause) {
+          stopCarousel();
+        } else if (!hoverPause) {
+          startCarousel();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
