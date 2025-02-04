@@ -1,6 +1,6 @@
 # Privacy Policy for Best of MidJourney
 
-**Effective Date:** [Insert Date]
+**Effective Date:** 2/3/2025
 
 ## 1. Data Collection
 The Best of MidJourney application does not collect, store, or share any personal data from users. The only activity performed by this app is the automated posting of AI-generated content to TikTok.
