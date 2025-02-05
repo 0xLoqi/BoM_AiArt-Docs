@@ -18,6 +18,8 @@
       justify-content: center;
       height: 100vh;
       overflow-x: hidden;
+      padding-top: 250px; /* Space for top carousel */
+      padding-bottom: 250px; /* Space for bottom carousel */
     }
     main {
       width: 90%;
@@ -64,23 +66,27 @@
       border-radius: 10px;
       margin-top: 20px;
     }
-    /* Video Marquee */
+    /* Video Marquees */
     .video-marquee {
       position: fixed;
-      bottom: 0;
       left: 0;
       width: 100%;
-      height: 280px; /* Increased height for better visibility */
+      height: 280px;
       overflow: hidden;
       background-color: rgba(0, 0, 0, 0.9);
       z-index: 999;
       display: flex;
       align-items: center;
     }
+    .top-marquee { top: 0; }
+    .bottom-marquee { bottom: 0; }
     .marquee-content {
       display: flex;
       width: calc(200% + 10px);
-      animation: marquee 30s linear infinite;
+      animation: marquee-left 30s linear infinite;
+    }
+    .marquee-content.reverse {
+      animation: marquee-right 30s linear infinite;
     }
     .marquee-item {
       flex: 0 0 auto;
@@ -88,7 +94,7 @@
       transition: transform 0.3s ease-in-out;
     }
     .marquee-item video {
-      height: 250px; /* Bigger default size */
+      height: 250px;
       width: auto;
       display: block;
       border-radius: 5px;
@@ -99,13 +105,13 @@
       transform: scale(1.4);
       z-index: 1000;
     }
-    @keyframes marquee {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
+    @keyframes marquee-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes marquee-right {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
     }
     /* Footer */
     footer {
@@ -119,6 +125,19 @@
   </style>
 </head>
 <body>
+  <!-- Top Video Marquee -->
+  <div class="video-marquee top-marquee">
+    <div class="marquee-content">
+      <div class="marquee-item"><video src="https://i.imgur.com/WCJ3zx2.mp4" autoplay loop muted playsinline></video></div>
+      <div class="marquee-item"><video src="https://i.imgur.com/kJQ4Gmp.mp4" autoplay loop muted playsinline></video></div>
+      <div class="marquee-item"><video src="https://i.imgur.com/9y7fInY.mp4" autoplay loop muted playsinline></video></div>
+      <div class="marquee-item"><video src="https://i.imgur.com/q1kaU85.mp4" autoplay loop muted playsinline></video></div>
+      <div class="marquee-item"><video src="https://i.imgur.com/x30lgCq.mp4" autoplay loop muted playsinline></video></div>
+      <div class="marquee-item"><video src="https://i.imgur.com/o4xDmYJ.mp4" autoplay loop muted playsinline></video></div>
+      <div class="marquee-item"><video src="https://i.imgur.com/vwdAnG6.mp4" autoplay loop muted playsinline></video></div>
+    </div>
+  </div>
+
   <main>
     <!-- Legal Section -->
     <section class="legal">
@@ -140,29 +159,16 @@
     </section>
   </main>
 
-  <!-- Video Marquee -->
-  <div class="video-marquee">
-    <div class="marquee-content">
-      <!-- Video Elements -->
+  <!-- Bottom Video Marquee -->
+  <div class="video-marquee bottom-marquee">
+    <div class="marquee-content reverse">
       <div class="marquee-item"><video src="https://i.imgur.com/EBPQhNz.mp4" autoplay loop muted playsinline></video></div>
       <div class="marquee-item"><video src="https://i.imgur.com/e0FIqvN.mp4" autoplay loop muted playsinline></video></div>
       <div class="marquee-item"><video src="https://i.imgur.com/C9k4gxg.mp4" autoplay loop muted playsinline></video></div>
-      <div class="marquee-item"><video src="https://i.imgur.com/WCJ3zx2.mp4" autoplay loop muted playsinline></video></div>
       <div class="marquee-item"><video src="https://i.imgur.com/4qCr2zD.mp4" autoplay loop muted playsinline></video></div>
-      <div class="marquee-item"><video src="https://i.imgur.com/kJQ4Gmp.mp4" autoplay loop muted playsinline></video></div>
-      <div class="marquee-item"><video src="https://i.imgur.com/x30lgCq.mp4" autoplay loop muted playsinline></video></div>
       <div class="marquee-item"><video src="https://i.imgur.com/US2Jipt.mp4" autoplay loop muted playsinline></video></div>
       <div class="marquee-item"><video src="https://i.imgur.com/oJttAAZ.mp4" autoplay loop muted playsinline></video></div>
-      <div class="marquee-item"><video src="https://i.imgur.com/28GoiYe.mp4" autoplay loop muted playsinline></video></div>
-      <div class="marquee-item"><video src="https://i.imgur.com/vwdAnG6.mp4" autoplay loop muted playsinline></video></div>
-      <div class="marquee-item"><video src="https://i.imgur.com/81iJ9X8.mp4" autoplay loop muted playsinline></video></div>
-      <div class="marquee-item"><video src="https://i.imgur.com/9y7fInY.mp4" autoplay loop muted playsinline></video></div>
-      <div class="marquee-item"><video src="https://i.imgur.com/q1kaU85.mp4" autoplay loop muted playsinline></video></div>
-      <div class="marquee-item"><video src="https://i.imgur.com/o4xDmYJ.mp4" autoplay loop muted playsinline></video></div>
-      <div class="marquee-item"><video src="https://i.imgur.com/wZRKBPq.mp4" autoplay loop muted playsinline></video></div>
       <div class="marquee-item"><video src="https://i.imgur.com/zK4T1pu.mp4" autoplay loop muted playsinline></video></div>
-      <div class="marquee-item"><video src="https://i.imgur.com/tKUIqO3.mp4" autoplay loop muted playsinline></video></div>
-      <div class="marquee-item"><video src="https://i.imgur.com/wPW6Wgl.mp4" autoplay loop muted playsinline></video></div>
     </div>
   </div>
 
