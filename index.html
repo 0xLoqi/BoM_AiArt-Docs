@@ -16,25 +16,23 @@
       flex-direction: column;
       min-height: 100vh;
       line-height: 1.5;
-    }
-    h1, h2 {
-      margin-bottom: 0.5em;
+      position: relative;
+      padding-bottom: 210px; /* Ensure main content isn't hidden behind marquee */
     }
     main {
-      flex: 1;
       width: 90%;
       max-width: 1000px;
       margin: 20px auto;
-    }
-    section {
-      margin-bottom: 40px;
       text-align: center;
+    }
+    h1, h2, p {
+      margin: 0 0 1em;
     }
     a {
       color: inherit;
       text-decoration: none;
     }
-    /* Legal Container */
+    /* Legal Section */
     .legal-container {
       background: rgba(255, 255, 255, 0.1);
       padding: 20px;
@@ -58,45 +56,50 @@
       color: #121212;
       transform: scale(1.05);
     }
-    /* Twitter Feed */
+    /* Twitter Feed Section */
     .twitter-feed {
       background: rgba(255, 255, 255, 0.05);
       padding: 20px;
       border-radius: 10px;
+      margin-top: 20px;
     }
-    /* Video Carousel */
-    .video-carousel {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 20px;
-      border-radius: 10px;
-      position: relative;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .carousel {
-      position: relative;
-      overflow: hidden;
-      border-radius: 10px;
-      height: 450px; /* Adjust as needed for your video aspect ratio */
-    }
-    .carousel .slide {
-      position: absolute;
-      top: 0;
-      left: 100%;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: all 0.5s ease;
-    }
-    .carousel .slide.active {
+    /* Video Marquee */
+    .video-marquee {
+      position: fixed;
+      bottom: 0;
       left: 0;
-      opacity: 1;
-    }
-    .carousel video {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: 200px; /* Adjust height as needed */
+      overflow: hidden;
+      background-color: rgba(0, 0, 0, 0.9);
+      z-index: 999;
+    }
+    .marquee-content {
+      display: flex;
+      /* Duplicate the content to create a seamless scroll */
+      width: calc(200% + 10px);
+      animation: marquee 30s linear infinite;
+    }
+    .marquee-item {
+      flex: 0 0 auto;
+      margin-right: 10px;
+    }
+    .marquee-item video {
+      height: 200px;
+      width: auto;
       display: block;
+    }
+    /* Pause animation on hover */
+    .marquee-content:hover {
+      animation-play-state: paused;
+    }
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
     }
     /* Footer */
     footer {
@@ -104,6 +107,7 @@
       font-size: 0.9em;
       opacity: 0.7;
       padding: 10px;
+      margin-top: 20px;
     }
   </style>
 </head>
@@ -124,95 +128,141 @@
     <!-- Twitter Timeline Section -->
     <section class="twitter-feed">
       <h2>Latest Tweets</h2>
-      <!-- Twitter timeline embed -->
-      <a class="twitter-timeline" data-height="400" href="https://x.com/BoM_AiArt?ref_src=twsrc%5Etfw">
-        Tweets by BoM_AiArt
-      </a>
+      <a class="twitter-timeline" data-height="400" href="https://x.com/BoM_AiArt?ref_src=twsrc%5Etfw">Tweets by BoM_AiArt</a>
       <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </section>
-
-    <!-- Video Carousel Section -->
-    <section class="video-carousel">
-      <h2>Our Videos</h2>
-      <div class="carousel" id="videoCarousel">
-        <!-- Replace the src attributes with your actual video URLs -->
-        <div class="slide active">
-          <video src="video1.mp4" autoplay loop muted playsinline></video>
-        </div>
-        <div class="slide">
-          <video src="video2.mp4" autoplay loop muted playsinline></video>
-        </div>
-        <div class="slide">
-          <video src="video3.mp4" autoplay loop muted playsinline></video>
-        </div>
-        <!-- Add more slides as desired -->
-      </div>
-      <p style="font-size: 0.9em; opacity: 0.8;">Hover over or click the video area to pause/resume the carousel rotation.</p>
-    </section>
   </main>
+
+  <!-- Video Marquee -->
+  <div class="video-marquee">
+    <div class="marquee-content">
+      <!-- First set of videos -->
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/EBPQhNz.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/e0FIqvN.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/C9k4gxg.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/WCJ3zx2.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/4qCr2zD.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/kJQ4Gmp.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/x30lgCq.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/US2Jipt.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/oJttAAZ.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/28GoiYe.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/vwdAnG6.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/81iJ9X8.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/9y7fInY.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/q1kaU85.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/o4xDmYJ.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/wZRKBPq.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/zK4T1pu.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/tKUIqO3.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/wPW6Wgl.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/wPRHfmS.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <!-- Duplicate the items for seamless looping -->
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/EBPQhNz.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/e0FIqvN.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/C9k4gxg.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/WCJ3zx2.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/4qCr2zD.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/kJQ4Gmp.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/x30lgCq.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/US2Jipt.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/oJttAAZ.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/28GoiYe.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/vwdAnG6.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/81iJ9X8.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/9y7fInY.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/q1kaU85.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/o4xDmYJ.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/wZRKBPq.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/zK4T1pu.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/tKUIqO3.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/wPW6Wgl.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="marquee-item">
+        <video src="https://i.imgur.com/wPRHfmS.mp4" autoplay loop muted playsinline></video>
+      </div>
+    </div>
+  </div>
 
   <footer>
     © 2024 Best of MidJourney | All Rights Reserved
   </footer>
-
-  <script>
-    // Carousel functionality
-    (function() {
-      const carousel = document.getElementById('videoCarousel');
-      const slides = carousel.querySelectorAll('.slide');
-      let currentSlide = 0;
-      let intervalTime = 5000; // milliseconds between slides
-      let carouselInterval;
-      let manualPause = false;
-      let hoverPause = false;
-      
-      function showSlide(index) {
-        slides.forEach((slide, i) => {
-          slide.classList.toggle('active', i === index);
-        });
-      }
-
-      function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-      }
-
-      function startCarousel() {
-        // Ensure no duplicate intervals are running
-        stopCarousel();
-        carouselInterval = setInterval(nextSlide, intervalTime);
-      }
-
-      function stopCarousel() {
-        clearInterval(carouselInterval);
-      }
-
-      // Start the carousel initially
-      startCarousel();
-
-      // Pause on hover
-      carousel.addEventListener('mouseenter', () => {
-        hoverPause = true;
-        stopCarousel();
-      });
-      carousel.addEventListener('mouseleave', () => {
-        hoverPause = false;
-        // Only restart if the carousel is not manually paused
-        if (!manualPause) {
-          startCarousel();
-        }
-      });
-
-      // Toggle manual pause on click
-      carousel.addEventListener('click', () => {
-        manualPause = !manualPause;
-        if (manualPause) {
-          stopCarousel();
-        } else if (!hoverPause) {
-          startCarousel();
-        }
-      });
-    })();
-  </script>
 </body>
 </html>
